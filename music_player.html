@@ -7,38 +7,64 @@
     <title>Music Player</title>
 </head>
 <body>
+    <h1>Music Player</h1>
+    
+    <!-- Trình phát nhạc -->
     <audio id="audioPlayer" controls>
         Your browser does not support the audio element.
     </audio>
-    
+
+    <br><br>
+
+    <!-- Danh sách bài hát -->
+    <h3>Select a song:</h3>
+    <ul>
+        <li><button onclick="playMusic(0)">Ed Sheeran - Perfect</button></li>
+        <li><button onclick="playMusic(1)">Fujii Kaze - Shinunoga E-Wa</button></li>
+        <li><button onclick="playMusic(2)">Maroon 5 - Memories</button></li>
+        <li><button onclick="playMusic(3)">Stephen Sanchez - Until I Found You</button></li>
+        <li><button onclick="playMusic(4)">The Kid LAROI & Justin Bieber - Stay</button></li>
+        <li><button onclick="playMusic(5)">Wiz Khalifa ft. Charlie Puth - See You Again</button></li>
+        <li><button onclick="playMusic(6)">Kenshi Yonezu - Lemon</button></li>
+    </ul>
+
+    <br>
+    <!-- Các nút điều khiển bài hát -->
+    <button onclick="playPrevious()">Previous</button>
+    <button onclick="playNext()">Next</button>
+
     <script>
+    // Danh sách các bài hát với liên kết trực tiếp từ Dropbox
     var playlist = [
-      "https://drive.google.com/uc?export=download&id=1knF9ByzziqJiZWGWBDmlnMPYjVxsv-GZ",  // Bài hát 1
-      "https://drive.google.com/uc?export=download&id=16QMT3ZOFqS9tO6vlvLEddqkizzUFjdiu",  // Bài hát 2
-      "https://drive.google.com/uc?export=download&id=1snp9-V8zg8xfSIILwnzDSDaedyIlLUPK",  // Bài hát 3
-      "https://drive.google.com/uc?export=download&id=1zRQs7o5pD0dtKz2ul2wggvd9hDdFCF0k",  // Bài hát 4
-      "https://drive.google.com/uc?export=download&id=1MSGZA1Fz8gzS6U2DTjNclyuqIk6kP61h",  // Bài hát 5
-      "https://drive.google.com/uc?export=download&id=1mwC4KlEkSiX4lrhAzUWE1gCtZ0VN0ek4",  // Bài hát 6
-      "https://drive.google.com/uc?export=download&id=11ECoVpLZbprU5YujTROMI4iuT4M4X-SY"   // Bài hát 7
+        "https://www.dropbox.com/scl/fi/debwpovkyi2kdb0mqas55/y2mate.com-Ed-Sheeran-Perfect-Lyrics.mp3?raw=1",
+        "https://www.dropbox.com/scl/fi/69a5q0onrgkdo6gpg7mwe/y2mate.com-Fujii-Kaze-Shinunoga-EWa-Not-a-MV.mp3?raw=1",
+        "https://www.dropbox.com/scl/fi/okehs9q3r19jp97b8n3q7/y2mate.com-Maroon-5-Memories-Lyrics.mp3?raw=1",
+        "https://www.dropbox.com/scl/fi/2elaw70bp9v4915puht1v/y2mate.com-Stephen-Sanchez-Em-Beihold-Until-I-Found-You-Lyrics.mp3?raw=1",
+        "https://www.dropbox.com/scl/fi/hyvkgp36prujk3fnbuf6n/y2mate.com-The-Kid-LAROI-Justin-Bieber-Stay-Lyrics.mp3?raw=1",
+        "https://www.dropbox.com/scl/fi/7ikj9wyp32f09xy6i7e1s/y2mate.com-Wiz-Khalifa-See-You-Again-ft-Charlie-Puth-Lyrics.mp3?raw=1",
+        "https://www.dropbox.com/scl/fi/9295erow4eh1p1n5vdz9q/y2mate.com-Kenshi-Yonezu-Lemon.mp3?raw=1"
     ];
 
     var currentTrack = 0;
 
+    // Hàm phát nhạc
     function playMusic(trackIndex) {
-      var audio = document.getElementById('audioPlayer');
-      currentTrack = trackIndex;
-      audio.src = playlist[trackIndex];
-      audio.play();
+        var audio = document.getElementById('audioPlayer');
+        currentTrack = trackIndex;
+        audio.src = playlist[trackIndex];
+        audio.play();
     }
 
+    // Phát bài tiếp theo
     function playNext() {
-      currentTrack = (currentTrack + 1) % playlist.length;
-      playMusic(currentTrack);
+        currentTrack = (currentTrack + 1) % playlist.length;
+        playMusic(currentTrack);
     }
 
+    // Phát bài trước
     function playPrevious() {
-      currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
-      playMusic(currentTrack);
+        currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
+        playMusic(currentTrack);
     }
     </script>
 </body>
