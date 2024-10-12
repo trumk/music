@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+</head>
+<body>
+    <audio id="audioPlayer" controls>
+        Your browser does not support the audio element.
+    </audio>
+    
+    <script>
+    var playlist = [
+      "https://drive.google.com/uc?export=download&id=1knF9ByzziqJiZWGWBDmlnMPYjVxsv-GZ",  // Bài hát 1
+      "https://drive.google.com/uc?export=download&id=16QMT3ZOFqS9tO6vlvLEddqkizzUFjdiu",  // Bài hát 2
+      "https://drive.google.com/uc?export=download&id=1snp9-V8zg8xfSIILwnzDSDaedyIlLUPK",  // Bài hát 3
+      "https://drive.google.com/uc?export=download&id=1zRQs7o5pD0dtKz2ul2wggvd9hDdFCF0k",  // Bài hát 4
+      "https://drive.google.com/uc?export=download&id=1MSGZA1Fz8gzS6U2DTjNclyuqIk6kP61h",  // Bài hát 5
+      "https://drive.google.com/uc?export=download&id=1mwC4KlEkSiX4lrhAzUWE1gCtZ0VN0ek4",  // Bài hát 6
+      "https://drive.google.com/uc?export=download&id=11ECoVpLZbprU5YujTROMI4iuT4M4X-SY"   // Bài hát 7
+    ];
+
+    var currentTrack = 0;
+
+    function playMusic(trackIndex) {
+      var audio = document.getElementById('audioPlayer');
+      currentTrack = trackIndex;
+      audio.src = playlist[trackIndex];
+      audio.play();
+    }
+
+    function playNext() {
+      currentTrack = (currentTrack + 1) % playlist.length;
+      playMusic(currentTrack);
+    }
+
+    function playPrevious() {
+      currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
+      playMusic(currentTrack);
+    }
+    </script>
+</body>
+</html>
