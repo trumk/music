@@ -4,6 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Player</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f9fc;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff5500;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        #audioPlayerContainer {
+            margin: 0 auto;
+            width: 80%;
+            max-width: 700px;
+            border: 2px solid #ff5500;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            background-color: #ff5500;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #ff7733;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .controls button {
+            width: 48%;
+        }
+
+        .controls button:hover {
+            background-color: #ff7733;
+        }
+
+        .controls button:focus {
+            outline: none;
+        }
+    </style>
 </head>
 <body>
     <h1>Music Player</h1>
@@ -28,9 +103,12 @@
     </ul>
 
     <br>
+
     <!-- Các nút điều khiển bài hát -->
-    <button onclick="playPrevious()">Previous</button>
-    <button onclick="playNext()">Next</button>
+    <div class="controls">
+        <button onclick="playPrevious()">Previous</button>
+        <button onclick="playNext()">Next</button>
+    </div>
 
     <script>
     // Danh sách các bài hát nhúng từ SoundCloud
